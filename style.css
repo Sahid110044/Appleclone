@@ -67,7 +67,7 @@ width: 100%;
 height: 0px;
 overflow: hidden;
 top: 20px;
-left: -250px;
+left: -242px;
 right: 0;
 display: none;
 background: linear-gradient(to bottom, white 65%, rgba(255,255,255,0.1) 35%);
@@ -171,7 +171,7 @@ backdrop-filter: blur(10px);
     margin-left: 24px !important;
 }
 .big-scroller{
-    padding: 0px 0px 0px 23px !important;
+    padding: 0px 20px 0px 23px !important;
     margin: 0px 0px 45px 0px !important;
 }
 .big-scroller .box2,.box4,.box5{
@@ -198,9 +198,16 @@ backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     border-bottom: 0.5px solid rgb(179, 177, 177);
 }
+/* ------------------bigscroll button------------------------- */
+
+.abso{
+    display: none;
+}
+.last{
+    margin-top: 315px !important;
+ }
 
 }
-
 
 
 /* -------------------alert section-------------------- */
@@ -268,15 +275,22 @@ backdrop-filter: blur(10px);
     width: 100%;
     padding: 10px 0px;
 }
+/* ---------------------------mini scroller -------------------*/
 .scroller{
     display: flex;
     justify-content: space-around;
     width: 98%;
     overflow-x: scroll;
+    scroll-behavior: smooth;
 }
 .scroller::-webkit-scrollbar{
     display: none;
 }
+.scroller.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+  }
+  
 .box{
     width: 200px;
     height: 130px;
@@ -292,6 +306,7 @@ backdrop-filter: blur(10px);
 .box img{
     max-width: 125px;
 }
+/* ------------------------------------------------------------ */
 /* ---------------------big product scroller ------------------- */
 
 .main-container{
@@ -302,17 +317,25 @@ backdrop-filter: blur(10px);
     margin: 18px 0px;
     margin-left: 103px;
 }
-/* ---------inside scroller--------*/
+.big{
+    position: relative;
+    width: 100%;
+    margin: 0px 0;
+    overflow: hidden;
+}
+/* ---------inside big-scroller--------*/
 
 .big-scroller{
     display: flex;
     overflow-x: scroll;
+    scroll-behavior: smooth;
     width: 100%;
     gap: 20px;
     margin: 0px 0px 65px 0px;
     padding: 10px 100px;
     
 }
+
 .big-scroller::-webkit-scrollbar{
     display: none;
 }
@@ -346,7 +369,31 @@ backdrop-filter: blur(10px);
 .big-scroller .box2,.box3,.box4,.box5{
     background-color: rgb(255, 255, 255) !important;
 }
-/* -------------------scroller buttons--------------------- */
+/* ---------------------left and right buttons------------------- */
+
+.abso{
+    position: absolute;
+    top: 44%;
+    transform: translateY(-50%);
+    background: rgba(235, 222, 222, 0.5);
+    color: rgb(99, 95, 95);
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    padding: 0px 16px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 50px;
+}
+.abso .left{
+    left: 10px;
+}
+.abso .right{
+    right: 1000px;
+}
+
+
+/* ------------------------scroller buttons--------------------- */
 
 .big-scroller .btn{
     padding: 12px 16px;
@@ -357,16 +404,27 @@ backdrop-filter: blur(10px);
     text-decoration: none;
     white-space: nowrap;
 }
-  /* --------------------item-font color--------------------------- */
+  /* --------------------big-scroller-margin-padding-color--------------------------- */
 
 .item-font{
     color: white;
 }
+.item-font,.item-font1{
+    margin: 11px 0px;
+}
+
 .gray{
     color: gray;
 }
 .small{
     font-size: 0.75rem;
+}
+
+.box,.box2,.box3,.box4,.box5{
+    padding: 26px 0px 0px 21px;
+}
+.last{
+   margin-top: 393px;
 }
 
 
@@ -438,6 +496,8 @@ backdrop-filter: blur(10px);
     padding: 0px 3px;    
     text-decoration: none;
 }
+/* ---------------------------------------------- */
+
 
 
 
