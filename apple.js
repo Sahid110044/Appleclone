@@ -4,6 +4,8 @@ setTimeout(() => {
     notification.style.background = "white";
 }, 1000)
 
+
+
 function toggle() {
     
     let menu = document.querySelector(".hide");
@@ -13,6 +15,7 @@ function toggle() {
         menu.style.display = "flex";
     }
 }
+
 
 
 function toggleList(listId) {
@@ -28,33 +31,55 @@ function toggleList(listId) {
 }
 
 
+//----------------------------------------------------------------------
 
+const scroller = document.querySelector('.scroller');
 
-document.querySelectorAll('.big-scroller').forEach(scrlcontr => {
-    const left = scrlcontr.previousElementSibling;  // Assuming left button is immediately before the scroller
-    const right = scrlcontr.nextElementSibling;    // Assuming right button is immediately after the scroller
+let isDown = false;
+let startX;
+let scrollLeft;
 
-    if (left && right) {
-        left.addEventListener('click', () => {
-            scrlcontr.style.scrollBehavior = 'smooth';
-            scrlcontr.scrollLeft -= 70;
-        });
-
-        right.addEventListener('click', () => {
-            scrlcontr.style.scrollBehavior = 'smooth';
-            scrlcontr.scrollLeft += 70;
-        });
-
-        scrlcontr.addEventListener('wheel', (scrl) => {
-            scrl.preventDefault();
-            scrlcontr.scrollLeft += scrl.deltaY;
-            scrlcontr.style.scrollBehavior = 'auto';
-        });
-    }
+scroller.addEventListener('mousedown', (e) => {
+  isDown = true;
+  scroller.classList.add('active');
+  startX = e.pageX - scroller.offsetLeft;
+  scrollLeft = scroller.scrollLeft;
 });
 
+scroller.addEventListener('mouseleave', () => {
+  isDown = false;
+  scroller.classList.remove('active');
+});
 
+scroller.addEventListener('mouseup', () => {
+  isDown = false;
+  scroller.classList.remove('active');
+});
 
+scroller.addEventListener('mousemove', (e) => {
+  if (!isDown) return;  // Stop the function from running
+  e.preventDefault();
+  const x = e.pageX - scroller.offsetLeft;
+  const walk = (x - startX) * 3; // The number 3 is the scrolling speed
+  scroller.scrollLeft = scrollLeft - walk;
+});
 
+//-----------------------------------------------------------------------
 
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollers = document.querySelectorAll('.big');
 
+    scrollers.forEach(scrollerContainer => {
+        const leftButton = scrollerContainer.querySelector('.abso.left');
+        const rightButton = scrollerContainer.querySelector('.abso.right');
+        const scroller = scrollerContainer.querySelector('.big-scroller');
+
+        leftButton.addEventListener('click', () => {
+            scroller.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        rightButton.addEventListener('click', () => {
+            scroller.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+    });
+});
