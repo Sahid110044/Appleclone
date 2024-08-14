@@ -27,3 +27,34 @@ function toggleList(listId) {
     }
 }
 
+
+
+
+document.querySelectorAll('.big-scroller').forEach(scrlcontr => {
+    const left = scrlcontr.previousElementSibling;  // Assuming left button is immediately before the scroller
+    const right = scrlcontr.nextElementSibling;    // Assuming right button is immediately after the scroller
+
+    if (left && right) {
+        left.addEventListener('click', () => {
+            scrlcontr.style.scrollBehavior = 'smooth';
+            scrlcontr.scrollLeft -= 70;
+        });
+
+        right.addEventListener('click', () => {
+            scrlcontr.style.scrollBehavior = 'smooth';
+            scrlcontr.scrollLeft += 70;
+        });
+
+        scrlcontr.addEventListener('wheel', (scrl) => {
+            scrl.preventDefault();
+            scrlcontr.scrollLeft += scrl.deltaY;
+            scrlcontr.style.scrollBehavior = 'auto';
+        });
+    }
+});
+
+
+
+
+
+
