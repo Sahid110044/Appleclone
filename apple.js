@@ -2,7 +2,7 @@ let notification = document.querySelector(".alert");
 setTimeout(() => {
     notification.style.height = "55px";
     notification.style.background = "white";
-}, 1000)
+}, 2000)
 
 
 
