@@ -373,7 +373,7 @@ backdrop-filter: blur(10px);
 
 .abso{
     position: absolute;
-    top: 44%;
+    top: 41%;
     transform: translateY(-50%);
     background: rgba(235, 222, 222, 0.5);
     color: rgb(99, 95, 95);
