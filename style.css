@@ -161,7 +161,7 @@ backdrop-filter: blur(10px);
     max-width: 100px !important;
 }
 .box:first-child{
-   margin-left: 5px !important;
+   margin-left: -35px !important;
 }
 /* ---------------big product scroller---------------------- */
 .main-container{
@@ -295,10 +295,10 @@ backdrop-filter: blur(10px);
     width: 200px;
     height: 130px;
     text-align: center;
-    margin: 0px 13px;
+    margin: 0px 11px;
 }
 .box:first-child{
-    margin-left: 78px;
+    margin-left: 50px;
 }
 .box:last-child{
     margin-right: 78px;
